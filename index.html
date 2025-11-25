@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sound My Brand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: #fdfbf9; /* Warm off-white */
+        color: #0f172a; 
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6, button { font-family: 'Space Grotesk', sans-serif; }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+      /* Vibrant Background Mesh */
+      .mesh-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: radial-gradient(circle at 15% 50%, rgba(20, 184, 166, 0.08) 0%, transparent 25%), 
+                    radial-gradient(circle at 85% 30%, rgba(251, 113, 133, 0.08) 0%, transparent 25%),
+                    radial-gradient(circle at 50% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 30%);
+        pointer-events: none;
+      }
+
+      .blob {
+        position: absolute;
+        filter: blur(80px);
+        opacity: 0.4;
+        animation: float 20s infinite alternate;
+      }
+      .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: #ccfbf1; animation-delay: 0s; } /* Teal-ish */
+      .blob-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: #fff1f2; animation-delay: -5s; } /* Rose-ish */
+      .blob-3 { top: 40%; left: 40%; width: 400px; height: 400px; background: #fffbeb; animation-delay: -10s; } /* Amber-ish */
+
+      @keyframes float {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        100% { transform: translate(30px, 50px) rotate(10deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="mesh-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
